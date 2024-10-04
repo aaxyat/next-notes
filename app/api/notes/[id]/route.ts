@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import { MongoClient, ObjectId } from 'mongodb';
+import dbConnect from '@/lib/dbConnect';  // Import dbConnect
+import Note from '@/models/Note';  // Import Note model
 
 const uri = process.env.MONGODB_URI;
 const dbName = process.env.MONGODB_DB;
@@ -26,6 +28,7 @@ export async function PUT(
   { params }: { params: { id: string } }
 ) {
   try {
+    if (!uri) throw new Error('MongoDB URI is not defined');
     const client = await MongoClient.connect(uri);
     const db = client.db(dbName);
     const collection = db.collection('notes');
@@ -46,7 +49,7 @@ export async function PUT(
   } catch (error) {
     console.error('Error in API route:', error);
     return NextResponse.json(
-      { error: 'Failed to update note', details: error.message },
+      { error: 'Failed to update note', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
   }
@@ -64,6 +67,7 @@ export async function DELETE(
       return NextResponse.json({ error: 'User ID is required' }, { status: 400 });
     }
 
+    if (!uri) throw new Error('MongoDB URI is not defined');
     const client = await MongoClient.connect(uri);
     const db = client.db(dbName);
     const collection = db.collection('notes');
@@ -80,7 +84,7 @@ export async function DELETE(
   } catch (error) {
     console.error('Error in API route:', error);
     return NextResponse.json(
-      { error: 'Failed to delete note', details: error.message },
+      { error: 'Failed to delete note', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
   }

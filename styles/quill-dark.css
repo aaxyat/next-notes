@@ -1,0 +1,75 @@
+/* Dark mode styles for Quill editor */
+.dark .ql-snow.ql-toolbar button,
+.dark .ql-snow .ql-toolbar button {
+  color: #fff;
+}
+
+.dark .ql-snow.ql-toolbar button:hover,
+.dark .ql-snow .ql-toolbar button:hover,
+.dark .ql-snow.ql-toolbar button.ql-active,
+.dark .ql-snow .ql-toolbar button.ql-active {
+  color: #06c;
+}
+
+.dark .ql-snow.ql-toolbar .ql-stroke,
+.dark .ql-snow .ql-toolbar .ql-stroke {
+  stroke: #fff;
+}
+
+.dark .ql-snow.ql-toolbar .ql-fill,
+.dark .ql-snow .ql-toolbar .ql-fill {
+  fill: #fff;
+}
+
+.dark .ql-snow.ql-toolbar button:hover .ql-stroke,
+.dark .ql-snow .ql-toolbar button:hover .ql-stroke,
+.dark .ql-snow.ql-toolbar button.ql-active .ql-stroke,
+.dark .ql-snow .ql-toolbar button.ql-active .ql-stroke {
+  stroke: #06c;
+}
+
+.dark .ql-snow.ql-toolbar button:hover .ql-fill,
+.dark .ql-snow .ql-toolbar button:hover .ql-fill,
+.dark .ql-snow.ql-toolbar button.ql-active .ql-fill,
+.dark .ql-snow .ql-toolbar button.ql-active .ql-fill {
+  fill: #06c;
+}
+
+.dark .ql-editor.ql-blank::before {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Improve header dropdown visibility */
+.dark .ql-snow .ql-picker.ql-header .ql-picker-label,
+.dark .ql-snow .ql-picker.ql-header .ql-picker-item {
+  color: #fff;
+}
+
+.dark .ql-snow .ql-picker.ql-header .ql-picker-label::before,
+.dark .ql-snow .ql-picker.ql-header .ql-picker-item::before {
+  color: #fff;
+}
+
+.dark .ql-snow .ql-picker.ql-header .ql-picker-label svg,
+.dark .ql-snow .ql-picker.ql-header .ql-picker-item svg {
+  stroke: #fff;
+}
+
+.dark .ql-snow .ql-picker.ql-header .ql-picker-options {
+  background-color: #1f2937; /* A dark background for the dropdown */
+}
+
+.dark .ql-snow .ql-picker.ql-header .ql-picker-options .ql-picker-item:hover {
+  background-color: #374151; /* Slightly lighter background for hover state */
+  color: #06c;
+}
+
+/* Improve visibility of the dropdown arrow */
+.dark .ql-snow .ql-picker.ql-header .ql-picker-label svg {
+  stroke: #fff;
+}
+
+.dark .ql-snow .ql-picker.ql-header .ql-picker-label:hover svg,
+.dark .ql-snow .ql-picker.ql-header.ql-expanded .ql-picker-label svg {
+  stroke: #06c;
+}

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { Plus, Search, X, Pencil, Trash2 } from "lucide-react"
+import { Plus, Search, X, Pencil, Trash2, AlertTriangle, Github } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
@@ -15,6 +15,7 @@ import 'react-quill/dist/quill.snow.css'
 import '@/styles/quill-dark.css'
 import { Navbar } from "@/components/Navbar"
 import { useAuth } from "@clerk/nextjs";
+import Link from 'next/link'
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false, loading: () => <p>Loading editor...</p> })
 
@@ -45,6 +46,8 @@ export function NoteTakingAppComponent() {
   const searchInputRef = useRef<HTMLInputElement>(null)
 
   const username = "Guest" // Placeholder username
+
+  const isDemo = process.env.NEXT_PUBLIC_IS_DEMO === 'true'
 
   useEffect(() => {
     setMounted(true)
@@ -205,6 +208,26 @@ export function NoteTakingAppComponent() {
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
       <Navbar />
+      {isDemo && (
+        <div className="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-4 py-3 shadow-md" role="alert">
+          <div className="container mx-auto flex flex-col sm:flex-row items-center justify-center text-center sm:text-left">
+            <div className="flex items-center mb-2 sm:mb-0">
+              <AlertTriangle className="h-5 w-5 mr-2" />
+              <span className="font-medium">⚠️ Warning:</span>
+            </div>
+            <span className="mx-2">This is a demo version and is insecure. Do not enter sensitive information.</span>
+            <Link 
+              href="https://github.com/aaxyat/next-notes" 
+              className="flex items-center justify-center underline mt-2 sm:mt-0"
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <Github className="h-4 w-4 mr-1" />
+              View on GitHub
+            </Link>
+          </div>
+        </div>
+      )}
       <div className="flex h-[calc(100vh-4rem)]"> {/* Adjust height to account for navbar */}
         {/* Sidebar */}
         <div className="w-64 bg-gray-200 dark:bg-gray-800 p-4">

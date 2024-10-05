@@ -7,6 +7,17 @@
 
 Next Notes is a modern, sleek note-taking application built with Next.js, TypeScript, and MongoDB. It offers a seamless experience for creating, organizing, and managing your notes with a beautiful user interface.
 
+
+## 🎮 Demo
+
+Experience Next Notes in action! Check out our live demo:
+
+[https://next-notes-five.vercel.app/](https://next-notes-five.vercel.app/)
+
+Feel free to explore the features, create notes, and see how Next Notes can enhance your note-taking experience. This demo showcases the full functionality of the application, giving you a hands-on preview of what you can expect when you deploy your own instance.
+
+
+
 ## 🌟 Features
 
 - 🔐 Secure user authentication with Clerk
